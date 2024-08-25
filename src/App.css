@@ -1,0 +1,95 @@
+body {
+    margin: 0;
+    padding: 0;
+}
+
+.left-sider {
+    min-height: 100vh;
+    max-height: 100vh;
+    overflow: visible;
+    position: unset;
+}
+
+.lMain {
+    height: 100vh;
+}
+
+.menu {
+    max-height: calc(100vh - 5.625rem);
+}
+.main {
+    max-height: calc(100vh - 65px);
+}
+
+
+* {
+    box-sizing: border-box;
+    margin: 0px;
+    padding: 0px;
+}
+
+
+
+
+@media only screen and (min-width: 768px) {
+    .menu {
+        max-height: calc(100vh - 5.625rem);
+    }
+}
+
+.logo-menu {
+    height: 4.25rem;
+    padding: 1rem;
+    display: flex;
+    -webkit-box-pack: justify;
+    justify-content: space-between;
+    -webkit-box-align: center;
+    align-items: center;
+}
+
+@media only screen and (min-width: 768px) {
+    .logo-menu {
+        height: 5.625rem;
+        padding-top: 1.25rem;
+        padding-bottom: 1.25rem;
+    }
+}
+
+
+.scrollbar {
+    overflow: auto;
+}
+
+.scrollbar::-webkit-scrollbar {
+    visibility: hidden;
+    -webkit-appearance: none;
+    width: 6px;
+    height: 6px;
+    background-color: transparent;
+}
+
+.scrollbar::-webkit-scrollbar-thumb {
+    visibility: hidden;
+    border-radius: 3px;
+    background-color: #ccc;
+}
+
+.scrollbar:hover::-webkit-scrollbar,
+.scrollbar:hover::-webkit-scrollbar-thumb,
+.scrollbar:focus::-webkit-scrollbar,
+.scrollbar:focus::-webkit-scrollbar-thumb {
+    visibility: visible;
+}
+.center {
+    margin: auto;
+    width: 50%;
+  }
+  .login{
+    margin-top: 50px;
+  }
+.main-content{
+    padding-left: 8px;
+}
+.post-content{
+    min-height: 500px;
+}
