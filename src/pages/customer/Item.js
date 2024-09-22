@@ -83,7 +83,7 @@ const CreatePost = () => {
     };
 
     const onReset = () => {
-        navigate('/');
+        navigate('/bcooup');
     }
 
     return (

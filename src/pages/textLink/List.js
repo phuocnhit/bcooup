@@ -40,9 +40,8 @@ const TextLink = () => {
     }
 
     const t = (post) => {
-        debugger;
         navigate({
-            pathname: `/textlink/${post.key}`,
+            pathname: `/bcooup/textlink/${post.key}`,
            
         });
 

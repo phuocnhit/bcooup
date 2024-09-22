@@ -36,7 +36,7 @@ const CustomerPage = () => {
 
     const t = (post) => {
         navigate({
-            pathname: `/customer/${post.id}`,
+            pathname: `/bcooup/customer/${post.id}`,
         });
     }
     const columns = [

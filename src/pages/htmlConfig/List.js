@@ -43,7 +43,7 @@ const TextLink = () => {
     const t = (post) => {
       
         navigate({
-            pathname: `/htmlconfig/${post.key}`,
+            pathname: `/bcooup/htmlconfig/${post.key}`,
 
         });
 
