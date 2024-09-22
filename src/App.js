@@ -36,7 +36,7 @@ const App = () => {
   } = theme.useToken();
 
   return (<>
-    <BrowserRouter>
+    <BrowserRouter basename='bcooup'>
       <Routes>
         <Route path="/login" element={<Login />} />
         <Route path="/" element={<LayoutAdmin />}>
