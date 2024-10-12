@@ -131,7 +131,7 @@ const CreatePost = () => {
         reader.readAsDataURL(img);
     };
     const onReset = () => {
-        navigate('/');
+        navigate('/bcooup');
     }
     const layout = {
         labelCol: { span: 8 },

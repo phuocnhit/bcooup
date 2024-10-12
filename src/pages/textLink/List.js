@@ -41,7 +41,7 @@ const TextLink = () => {
 
     const t = (post) => {
         navigate({
-            pathname: `/bcooup/textlink/${post.key}`,
+            pathname: `/textlink/${post.key}`,
            
         });
 
@@ -83,7 +83,7 @@ const TextLink = () => {
         <>
             <Flex gap="middle" align="start" vertical>
                 <Flex style={boxStyle} justify="flex-end" align="flex-start">
-                    <Button href="/textlink/0" onClick={() => { }} type="primary" style={{ marginBottom: 16 }}>
+                    <Button href="/bcooup#textlink/0" onClick={() => { }} type="primary" style={{ marginBottom: 16 }}>
                         Thêm mới
                     </Button>
                 </Flex>
