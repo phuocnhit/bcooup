@@ -16,7 +16,7 @@ import {
 } from 'antd';
 import { PlusOutlined, LoadingOutlined, UploadOutlined } from '@ant-design/icons';
 import { CKEditor } from '@ckeditor/ckeditor5-react';
-import ClassicEditor from 'ckeditor5-custom-build/build/ckeditor';
+import ClassicEditor from '@ckeditor/ckeditor5-build-classic';
 
 import { useState, useEffect, } from "react";
 import { URL_API } from '../../config'
@@ -246,7 +246,7 @@ const CreatePost = () => {
                         onChange={(event, editor) => {
                             const data = editor.getData();
                             setContent(data);
-                            console.log({ event, editor, data });
+                            
                             editor.ui.view.editable.element.style.height = '1000px';
                         }}
                         onBlur={(event, editor) => {
