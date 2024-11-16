@@ -131,7 +131,7 @@ const CreatePost = () => {
         reader.readAsDataURL(img);
     };
     const onReset = () => {
-        navigate('/');
+        navigate('/bcooup');
     }
     const layout = {
         labelCol: { span: 8 },
@@ -246,7 +246,7 @@ const CreatePost = () => {
                         onChange={(event, editor) => {
                             const data = editor.getData();
                             setContent(data);
-                            console.log({ event, editor, data });
+                            
                             editor.ui.view.editable.element.style.height = '1000px';
                         }}
                         onBlur={(event, editor) => {

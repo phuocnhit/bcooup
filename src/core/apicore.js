@@ -32,7 +32,7 @@ async function apiClient(endpoint, { method = 'GET', body, headers = {} } = {}) 
 
         // const response = await fetch(`${URL_API}/${endpoint}`, config);
         if (response.status == 401) {
-            window.location.href='/login';
+            window.location.href='/bcooup#login';
         }
         return response;
 

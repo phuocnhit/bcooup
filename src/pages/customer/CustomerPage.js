@@ -78,7 +78,7 @@ const CustomerPage = () => {
 
             <Flex gap="middle" align="start" vertical>
                 <Flex style={boxStyle} justify="flex-end" align="flex-start">
-                    <Button href="/customer/0" onClick={() => { }} type="primary" style={{ marginBottom: 16 }}>
+                    <Button href="/bcooup#customer/0" onClick={() => { }} type="primary" style={{ marginBottom: 16 }}>
                         Thêm mới
                     </Button>
                 </Flex>
