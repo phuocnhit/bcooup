@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { BrowserRouter, Routes, Route } from "react-router-dom";
+import { HashRouter, Routes, Route } from "react-router-dom";
 
 import {
   MenuFoldOutlined,
@@ -36,7 +36,7 @@ const App = () => {
   } = theme.useToken();
 
   return (<>
-    <BrowserRouter basename='bcooup'>
+    <HashRouter>
       <Routes>
         <Route path="/login" element={<Login />} />
         <Route path="/" element={<LayoutAdmin />}>
@@ -54,7 +54,7 @@ const App = () => {
         </Route>
 
       </Routes>
-    </BrowserRouter>
+    </HashRouter>
   </>)
   
 };
