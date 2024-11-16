@@ -23,8 +23,6 @@ import { useNavigate, useSearchParams } from 'react-router-dom'
 import apiClient from '../../core/apicore'
 import { useAuth } from "../../context/auth";
 import { useParams } from 'react-router';
-import { CKEditor } from '@ckeditor/ckeditor5-react';
-import ClassicEditor from '@ckeditor/ckeditor5-build-classic';
 import moment from 'moment';
 
 const CreatePost = () => {

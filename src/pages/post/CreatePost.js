@@ -16,7 +16,7 @@ import {
 } from 'antd';
 import { PlusOutlined, LoadingOutlined, UploadOutlined } from '@ant-design/icons';
 import { CKEditor } from '@ckeditor/ckeditor5-react';
-import ClassicEditor from '@ckeditor/ckeditor5-build-classic';
+import ClassicEditor from 'ckeditor5-custom-build/build/ckeditor';
 
 import { useState, useEffect, } from "react";
 import { URL_API } from '../../config'
