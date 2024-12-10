@@ -25,6 +25,7 @@ import { useNavigate, useSearchParams } from 'react-router-dom'
 import apiClient from '../../core/apicore'
 import { useAuth } from "../../context/auth";
 import moment from 'moment';
+import MyUploadAdapter from './MyUploadAdapter';
 
 const CreatePost = () => {
     const [searchParams] = useSearchParams();
@@ -41,7 +42,32 @@ const CreatePost = () => {
     const [imageUrl, setImageUrl] = useState('');
     const [fileList, setFileList] = useState([]);
 
+    function MyCustomUploadAdapterPlugin(editor) {
+        editor.plugins.get('FileRepository').createUploadAdapter = (loader) => {
+            // Configure the URL to the upload script in your back-end here!
+            return new MyUploadAdapter(loader, auth?.token);
+        };
+    }
 
+    const editorConfiguration = {
+        // plugins: [SimpleUploadAdapter],
+        htmlSupport: {
+            allow: [
+                {
+                    name: /.*/,
+                    attributes: true,
+                    classes: true,
+                    styles: true
+                }
+            ]
+        },
+        extraPlugins: [MyCustomUploadAdapterPlugin],
+        // toolbar: ['imageUpload', '|', 'bold', 'italic', 'link', 'bulletedList', 'numberedList', 'blockQuote'],
+
+        // simpleUpload: {
+        //   uploadUrl: '/upload-endpoint', // Replace with your server upload endpoint
+        // },
+    };
 
     useEffect(() => {
         console.log('22222222222', id);
@@ -220,23 +246,8 @@ const CreatePost = () => {
                 <Form.Item label="Nội dung">
                     <CKEditor
                         editor={ClassicEditor}
-                        config={{
-                            allowedContent: true,
-                            ckfinder: {
-                                uploadUrl: `${URL_API}/admin/post/Upload?command=QuickUpload&type=Images&responseType=json&token=${auth?.token}`,
-                            },
-                            htmlSupport: {
-                                allow: [
-                                    {
-                                        name: /.*/,
-                                        attributes: true,
-                                        classes: true,
-                                        styles: true
-                                    }
-                                ]
-                            }
-                            
-                        }}
+                        config={editorConfiguration}
+                        
                         data={content}
                         onReady={editor => {
                             // You can store the "editor" and use when it is needed.
@@ -260,23 +271,7 @@ const CreatePost = () => {
                 <Form.Item label="Mô tả mở rộng">
                     <CKEditor
                         editor={ClassicEditor}
-                        config={{
-                            allowedContent: true,
-                            ckfinder: {
-                                uploadUrl: `${URL_API}/admin/post/Upload?command=QuickUpload&type=Images&responseType=json&token=${auth?.token}`,
-                            },
-                            htmlSupport: {
-                                allow: [
-                                    {
-                                        name: /.*/,
-                                        attributes: true,
-                                        classes: true,
-                                        styles: true
-                                    }
-                                ]
-                            }
-                            
-                        }}
+                        config={editorConfiguration}
 
                         data={extendDescription}
                         onReady={editor => {
@@ -301,23 +296,7 @@ const CreatePost = () => {
                 <Form.Item label="Mở rộng">
                     <CKEditor
                         editor={ClassicEditor}
-                        config={{
-                            allowedContent: true,
-                            ckfinder: {
-                                uploadUrl: `${URL_API}/admin/post/Upload?command=QuickUpload&type=Images&responseType=json&token=${auth?.token}`,
-                            },
-                            htmlSupport: {
-                                allow: [
-                                    {
-                                        name: /.*/,
-                                        attributes: true,
-                                        classes: true,
-                                        styles: true
-                                    }
-                                ]
-                            }
-                            
-                        }}
+                        config={editorConfiguration}
 
                         data={extend}
                         onReady={editor => {
