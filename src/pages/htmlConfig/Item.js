@@ -25,7 +25,7 @@ import { useAuth } from "../../context/auth";
 import { useParams } from 'react-router';
 import { CKEditor } from '@ckeditor/ckeditor5-react';
 import ClassicEditor from 'ckeditor5-custom-build/build/ckeditor';
-
+import MyUploadAdapter from '../post/MyUploadAdapter';
 
 const CreatePost = () => {
     const [searchParams] = useSearchParams();
@@ -39,6 +39,32 @@ const CreatePost = () => {
 
 
 
+    function MyCustomUploadAdapterPlugin(editor) {
+        editor.plugins.get('FileRepository').createUploadAdapter = (loader) => {
+            // Configure the URL to the upload script in your back-end here!
+            return new MyUploadAdapter(loader, auth?.token);
+        };
+    }
+
+    const editorConfiguration = {
+        // plugins: [SimpleUploadAdapter],
+        htmlSupport: {
+            allow: [
+                {
+                    name: /.*/,
+                    attributes: true,
+                    classes: true,
+                    styles: true
+                }
+            ]
+        },
+        extraPlugins: [MyCustomUploadAdapterPlugin],
+        // toolbar: ['imageUpload', '|', 'bold', 'italic', 'link', 'bulletedList', 'numberedList', 'blockQuote'],
+
+        // simpleUpload: {
+        //   uploadUrl: '/upload-endpoint', // Replace with your server upload endpoint
+        // },
+    };
 
     useEffect(() => {
         console.log('22222222222', id);
@@ -115,23 +141,7 @@ const CreatePost = () => {
                 <Form.Item label="Nội dung">
                     <CKEditor
                         editor={ClassicEditor}
-                        config={{
-                            allowedContent: true,
-                            ckfinder: {
-                                uploadUrl: `${URL_API}/admin/post/Upload?command=QuickUpload&type=Images&responseType=json&token=${auth?.token}`,
-                            },
-                            htmlSupport: {
-                                allow: [
-                                    {
-                                        name: /.*/,
-                                        attributes: true,
-                                        classes: true,
-                                        styles: true
-                                    }
-                                ]
-                            }
-                            
-                        }}
+                        config={editorConfiguration}
                         data={content}
                         onReady={editor => {
                             // You can store the "editor" and use when it is needed.
